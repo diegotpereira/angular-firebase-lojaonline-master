@@ -26,7 +26,6 @@ export class AuthService {
 	  entrar() {
 		  const retornoUrl = this._route.snapshot.queryParamMap.get('retornoUrl') || '/';
 		  sessionStorage.setItem('retornoUrl', retornoUrl);
-
 		  const fornecedor = new firebase.auth.GoogleAuthProvider();
 		  this._afAuth.auth.signInWithPopup(fornecedor);
 	  }
