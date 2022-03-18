@@ -1,1 +1,11 @@
-<p>produto-filter works!</p>
+<div class="sticky-top">
+    <input type="text" class="form-control mb-4" placeholder="Pesquisar item...">
+    <div class="list-group">
+        <a href="" class="list-group-item list-group-item-action" [class.active]="!categoria" routerLink="/">
+			Todas Categorias
+		</a>
+        <a *ngFor='let c of categorias$ | async' routerLink="/" [queryParams]="{ categoria: c.key}" class="list-group-item list-group-item-action" [class.active]="categoria === c.key">
+			{{ c.nome }}
+        </a>
+    </div>
+</div>
