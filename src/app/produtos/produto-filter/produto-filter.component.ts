@@ -14,8 +14,7 @@ export class ProdutoFilterComponent implements OnInit {
 	@Output() pesquisaResposta = new EventEmitter<any>();
 
   constructor(
-	  private categoriaService: CategoriaService
-  ) {
+	  private categoriaService: CategoriaService) {
 	  this.getCategorias();
   }
 

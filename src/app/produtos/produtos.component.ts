@@ -42,7 +42,6 @@ export class ProdutosComponent implements OnInit, OnDestroy {
 			  this.produtosFiltrados = (this.categoria) ?
 			  this.produtos.filter(p => p.categoria === this.categoria) :
 			  this.produtos;
-			  console.log(this.produtos);
 			  
 		  })
   }
