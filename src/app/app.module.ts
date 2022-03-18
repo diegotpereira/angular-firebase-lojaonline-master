@@ -15,6 +15,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { ProdutosComponent } from './produtos/produtos.component';
     LoginComponent,
     AppNavbarComponent,
     ProdutosComponent,
+    ProdutoFilterComponent,
+    ProdutoFilterComponent,
     
   ],
   imports: [
@@ -29,6 +34,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
     AppRoutingModule,
     BrowserAnimationsModule,
 	MaterialModule,
+	SharedModule,
 	AngularFireModule.initializeApp(environment.firebase),
 	AngularFireDatabaseModule,
 	AngularFireAuthModule,
