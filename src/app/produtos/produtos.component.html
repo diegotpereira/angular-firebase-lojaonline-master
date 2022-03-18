@@ -6,7 +6,7 @@
         <div class="row">
             <ng-container *ngFor='let p of produtosFiltrados | filter: chaveDePesquisa; index as i'>
                 <div class="col-4">
-                    <app-produto-card [product]="p"></app-produto-card>
+                    <app-produto-card [produto]="p"></app-produto-card>
                 </div>
                 <div *ngIf="(i+1) % 3 === 0" class="w-100"></div>
             </ng-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { map, switchMap } from 'rxjs/operators'
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ import { ProdutoService } from '../shared/services/produto.service';
   templateUrl: './produtos.component.html',
   styleUrls: ['./produtos.component.css']
 })
-export class ProdutosComponent implements OnInit {
+export class ProdutosComponent implements OnInit, OnDestroy {
 
 	produtos: Produto[] = [];
 	produtosFiltrados: Produto[] = [];
@@ -22,8 +22,7 @@ export class ProdutosComponent implements OnInit {
 
   constructor(
 	  private route: ActivatedRoute,
-	  private produtoService: ProdutoService
-  ) {
+	  private produtoService: ProdutoService) {
 	this.getProdutos();
    }
    
@@ -32,7 +31,7 @@ export class ProdutosComponent implements OnInit {
   }
   getProdutos() {
 	  this.subscribe = this.produtoService.getTodos().snapshotChanges().pipe(
-		map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() as {} }))	
+		map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() as Produto }))	
 		  )).pipe(switchMap((produtos: any) => {
 			  this.produtos = produtos;
 
@@ -43,6 +42,8 @@ export class ProdutosComponent implements OnInit {
 			  this.produtosFiltrados = (this.categoria) ?
 			  this.produtos.filter(p => p.categoria === this.categoria) :
 			  this.produtos;
+			  console.log(this.produtos);
+			  
 		  })
   }
 

@@ -4,18 +4,23 @@ import { SortingPipe } from './pipe/sorting.pipe';
 import { MaterialModule } from '../material.module';
 import { FilterPipe } from './pipe/filter.pipe';
 
+import { ProdutoCardComponent } from './componentes/produto-card/produto-card.component';
+
 @NgModule({
 	declarations: [
+		ProdutoCardComponent,
 		SortingPipe,
 		FilterPipe
 	],
 	exports: [
+		ProdutoCardComponent,
 		SortingPipe,
 		FilterPipe
 	],
 	imports: [
 		CommonModule,
-		MaterialModule
+		MaterialModule,
+		
 	]
 })
-export class SharedModule {}
+export class SharedModule { }
