@@ -1,5 +1,5 @@
 <div class="sticky-top">
-    <input type="text" class="form-control mb-4" placeholder="Pesquisar item...">
+    <input type="text" class="form-control mb-4" #produtoInfo placeholder="Pesquisar item..." (keyup)="PesquisarProdutos(produtoInfo.value)">
     <div class="list-group">
         <a href="" class="list-group-item list-group-item-action" [class.active]="!categoria" routerLink="/">
 			Todas Categorias

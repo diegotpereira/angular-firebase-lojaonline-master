@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
     
     args = args.toLowerCase();
 
-    return value.filter((val) => (val.title).toLowerCase().includes(args));
+    return value.filter((val) => (val.titulo).toLowerCase().includes(args));
   }
 
 }
