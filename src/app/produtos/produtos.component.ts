@@ -32,7 +32,7 @@ export class ProdutosComponent implements OnInit {
   }
   getProdutos() {
 	  this.subscribe = this.produtoService.getTodos().snapshotChanges().pipe(
-		  map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() as {} }))
+		map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() as {} }))	
 		  )).pipe(switchMap((produtos: any) => {
 			  this.produtos = produtos;
 

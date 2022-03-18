@@ -17,6 +17,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter.component';
 import { SharedModule } from './shared/shared.module';
+import { ProdutoCardComponent } from './shared/componentes/produto-card/produto-card.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { SharedModule } from './shared/shared.module';
     ProdutosComponent,
     ProdutoFilterComponent,
     ProdutoFilterComponent,
+    ProdutoCardComponent,
     
   ],
   imports: [
