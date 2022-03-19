@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppUsuario } from '../shared/models/app-usuario';
+import { CarrinhoCompras } from '../shared/models/carrinho-compras';
+import { AuthService } from '../shared/services/auth.service';
+import { CarrinhoComprasService } from '../shared/services/carrinho-compras.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppNavbarComponent implements OnInit {
 
-  constructor() { }
+	appUsuario: AppUsuario;
+	carrinho$: Observable<CarrinhoCompras>
+  constructor(
+	  private auth: AuthService,
+	  private carrinhoService: CarrinhoComprasService
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+	  this.auth.AppUsuario$.subscribe(appUsuario => this.appUsuario = this.appUsuario)
+	  this.carrinho$ = await this.carrinhoService.getCarrinho();
+
+	  
   }
-
+  sair() {
+	  this.auth.sair();
+  }
 }
