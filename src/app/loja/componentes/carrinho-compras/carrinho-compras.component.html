@@ -1,0 +1,55 @@
+<h1>Carrinho de Compras</h1>
+
+<div class="row col-10 margin-auto" *ngIf='carrinho$ | async as carrinho'>
+    <ng-container *ngIf="carrinho.contagemTotalItens > 0; else noDataAvailable">
+        <p>
+            você tem {{ carrinho.contagemTotalItens }} itens em seu carrinho de compras.
+            <button class="btn btn-light btn-sm" *ngIf='carrinho.items.length' (click)="limparCarrinho()">
+				Limpar Carrinho de Compras
+			</button>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Produto</th>
+                    <th class="w-25 text-center">Quantidade</th>
+                    <th class="w-25 text-right">Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let item of carro.items'>
+                    <td class="d-flex justify-content-center">
+                        <div [style.backgroundImage]="'url(' + item.produto.imagemUrl + ')'" class="thumbnail"></div>
+                    </td>
+                    <td>
+                        {{ item.produto.titulo }}
+                    </td>
+                    <td>
+
+                    </td>
+                    <td class="text-right">
+                        {{ item.totalPreco | currency: 'BRL':'symbol'}}
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right">{{ carrinho.ContagemTotal | currency: 'BRL':'symbol' }}</th>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="col p-0 d-flex flex-row-reverse">
+            <button *ngIf='carrinho.items.length' routerLink='/check-out' color="primary" mat-raised-button>Finalizar</button>
+        </div>
+    </ng-container>
+</div>
+<ng-template #noDataAvailable>
+    <div class="alert alert-danger col">
+        Desculpe, nenhum item está disponível no carrinho
+    </div>
+</ng-template>

@@ -17,6 +17,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter.component';
 import { SharedModule } from './shared/shared.module';
+import { CarrinhoComprasComponent } from './loja/componentes/carrinho-compras/carrinho-compras.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
     LoginComponent,
     AppNavbarComponent,
     ProdutosComponent,
-    ProdutoFilterComponent
+    ProdutoFilterComponent,
+    CarrinhoComprasComponent
     
   ],
   imports: [
