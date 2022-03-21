@@ -8,7 +8,7 @@ import { CarrinhoComprasService } from 'src/app/shared/services/carrinho-compras
 })
 export class CarrinhoComprasComponent implements OnInit {
 
-	carrinho$;
+  carrinho$;
 
   constructor(
 	  private carrinhoService: CarrinhoComprasService

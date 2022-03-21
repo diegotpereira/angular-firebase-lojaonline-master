@@ -19,7 +19,7 @@ export class CarrinhoCompras {
 	get ContagemTotal() {
 		let soma = 0;
 
-		for(let produtoId in this.items) {
+		for(let produtoId in this.items) {	
 			soma += this.items[produtoId].totalPreco;
 		}
 		return soma;

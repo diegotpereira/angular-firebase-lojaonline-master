@@ -19,6 +19,7 @@ import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter
 import { SharedModule } from './shared/shared.module';
 import { CarrinhoComprasComponent } from './loja/componentes/carrinho-compras/carrinho-compras.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

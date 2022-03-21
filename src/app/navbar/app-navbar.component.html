@@ -1,31 +1,30 @@
 <mat-toolbar color="primary" class="fixed-top">
     <mat-toolbar-row>
-        <button mat-button routerLink="#" class="h4">
+        <button mat-button routerLink="/" class="h4">
 			Loja
 		</button>
 
         <span class="example-spacer"></span>
-
         <div>
-            <button mat-button routerLink="#">
+            <button mat-button routerLink="/carrinho-compras">
 				<mat-icon class="example-icon" aria-hidden="false" aria-label="cart icon">shopping_cart</mat-icon>
 				<span>
 					Carrinho
 				</span>
-				<span class="badge badge-warning badge-pill">
-					
+				<span class="badge badge-warning badge-pill" *ngIf='carrinho$ | async as carrinho'>
+					{{ carrinho.contagemTotalItems }}
 				</span>
 			</button>
             <ng-template #anonymousUser>
-                <button mat-icon-button routerLink="#">Entrar</button>
+                <button mat-icon-button routerLink="/entrar">Entrar</button>
             </ng-template>
-            <ng-container>
-                <button mat-button>
+            <ng-container *ngIf="appUsuario; else anonymousUser">
+                <button mat-button [matMenuTriggerFor]="menuBar">
 					<mat-icon class="example-icon" aria-hidden="false" aria-label="settings icon">settings_applications</mat-icon>
+					{{ appUsuario.nome }}
 				</button>
 
                 <mat-menu #menuBar="matMenu" hasBackdrop="true">
-
                     <button mat-menu-item>
 						Meus Pedidos
 					</button>
@@ -33,7 +32,7 @@
                         <button mat-menu-item routerLink="#">Gerenciar Pedidos</button>
                         <button mat-menu-item routerLink="#">Gerenciar Produtos</button>
                     </ng-container>
-                    <button mat-menu-item (click)="sair()">Sair</button>
+                    <button mat-menu-item (click)="sair()">Log Out</button>
                 </mat-menu>
             </ng-container>
         </div>

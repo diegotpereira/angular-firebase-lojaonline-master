@@ -13,6 +13,7 @@ import { CarrinhoComprasService } from '../shared/services/carrinho-compras.serv
 export class AppNavbarComponent implements OnInit {
 
 	appUsuario: AppUsuario;
+	carrinhoComprasContar: number;
 	carrinho$: Observable<CarrinhoCompras>
   constructor(
 	  private auth: AuthService,
@@ -20,7 +21,7 @@ export class AppNavbarComponent implements OnInit {
   ) { }
 
   async ngOnInit(){
-	  this.auth.AppUsuario$.subscribe(appUsuario => this.appUsuario = this.appUsuario)
+	  this.auth.AppUsuario$.subscribe(appUsuario => this.appUsuario = appUsuario)
 	  this.carrinho$ = await this.carrinhoService.getCarrinho();
 
 	  

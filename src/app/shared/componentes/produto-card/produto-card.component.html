@@ -5,18 +5,18 @@
             <h5 class="card-title"> {{ produto.titulo }}</h5>
             <p class="card-text"> {{ produto.preco | currency: 'BRL': 'symbol-narrow' }}</p>
         </div>
-        <div>
+        <div *ngIf='appUsuario?.ehAdmin && showActions'>
             <button mat-icon-button aria-label="Editar Detalhes">
 				<mat-icon>edit</mat-icon>
 			</button>
         </div>
     </div>
-    <div class="card-footer p-0">
-        <button mat-button class="btn btn-secondary btn-block">
-			Adicionar no Carrinho
+    <div *ngIf="showActions && carrinhoCompras" class="card-footer p-0">
+        <button *ngIf="carrinhoCompras.getQuantidade(produto) === 0; else atualizarQuantidade" mat-button class="btn btn-secondary btn-block" (click)="addNoCarrinho()">
+			Adicionar Carrinho
 		</button>
-        <ng-template>
-
+        <ng-template #atualizarQuantidade>
+            <app-produto-quantidade [produto]="produto" [carrinhoCompras]="carrinhoCompras"></app-produto-quantidade>
         </ng-template>
     </div>
 </div>

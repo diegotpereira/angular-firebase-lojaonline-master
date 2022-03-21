@@ -6,7 +6,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
 
 const routes: Routes = [
 	{
-		path: "login", 
+		path: "entrar", 
 		component: LoginComponent
 	},
 	{

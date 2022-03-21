@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Produto } from '../shared/models/produto';
 import { ProdutoService } from '../shared/services/produto.service';
+import { CarrinhoComprasService } from '../shared/services/carrinho-compras.service';
+import { CarrinhoCompras } from '../shared/models/carrinho-compras';
 
 @Component({
   selector: 'app-produtos',
@@ -16,13 +18,14 @@ export class ProdutosComponent implements OnInit, OnDestroy {
 	produtosFiltrados: Produto[] = [];
 	subscribe: Subscription;
 	categoria: string; 
-	cart: any; 
+	carrinho: any; 
 	subscription: Subscription;
 	chaveDePesquisa;
 
   constructor(
 	  private route: ActivatedRoute,
-	  private produtoService: ProdutoService) {
+	  private produtoService: ProdutoService,
+	  private carrinhoService: CarrinhoComprasService) {
 	this.getProdutos();
    }
    
@@ -47,6 +50,9 @@ export class ProdutosComponent implements OnInit, OnDestroy {
   }
 
   async ngOnInit() {
+	  this.subscribe = (await this.carrinhoService.getCarrinho()).subscribe(carrinho => {
+		  this.carrinho = new CarrinhoCompras(carrinho.key, carrinho.itemsMap);
+	  })
   }
   getResponse(event) {
 	  this.chaveDePesquisa = event;
