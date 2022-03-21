@@ -24,7 +24,4 @@ export class ProdutoQuantidadeComponent{
   removerDoCarrinho(){
 	  this.carrinhoService.removerDoCarrinho(this.produto);
   }
-  ngOnInit(): void {
-  }
-
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from '../../models/produto';
 import { AuthService } from '../../services/auth.service';
@@ -24,17 +24,13 @@ export class ProdutoCardComponent {
 	  private auth: AuthService,
 	  private carrinhoService: CarrinhoComprasService
   ) {
-	  this.auth.AppUsuario$.subscribe(appUsuario => this.appUsuario = appUsuario)
-	  console.log(this.appUsuario);
+	  this.auth.AppUsuario$.subscribe(appUsuario => this.appUsuario = appUsuario);
 	  
   }
   addNoCarrinho() {
 	  this.carrinhoService.addNoCarrinhoService(this.produto);
-	  console.log(this.carrinhoService);
-	  
   }
-
-  ngOnInit(): void {
+  editarProduto(produto) {
+	  this._router.navigate(['#', produto.key]);
   }
-
 }

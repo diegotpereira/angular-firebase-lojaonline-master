@@ -18,7 +18,7 @@ export class ProdutoService {
 	  return this.db.list('/produtos')
   }
   get(produtoID) {
-	  return this.db.object('/produtos' + produtoID)
+	  return this.db.object('/produtos/' + produtoID)
   }
   atualizar(produtoID, produto) {
 	  return this.db.object('/produtos/' + produtoID).update(produto)

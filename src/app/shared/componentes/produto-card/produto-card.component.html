@@ -6,17 +6,17 @@
             <p class="card-text"> {{ produto.preco | currency: 'BRL': 'symbol-narrow' }}</p>
         </div>
         <div *ngIf='appUsuario?.ehAdmin && showActions'>
-            <button mat-icon-button aria-label="Editar Detalhes">
+            <button mat-icon-button aria-label="Editar Detalhes" (click)="editarProduto(produto)">
 				<mat-icon>edit</mat-icon>
 			</button>
         </div>
     </div>
     <div *ngIf="showActions && carrinhoCompras" class="card-footer p-0">
-        <button *ngIf="carrinhoCompras.getQuantidade(produto) === 0; else atualizarQuantidade" mat-button class="btn btn-secondary btn-block" (click)="addNoCarrinho()">
+        <button *ngIf="carrinhoCompras.getQuantidade(produto) === 0; else atualizarQuantidade" mat-button class=" btn btn-secondary btn-block " (click)="addNoCarrinho() ">
 			Adicionar Carrinho
 		</button>
         <ng-template #atualizarQuantidade>
-            <app-produto-quantidade [produto]="produto" [carrinhoCompras]="carrinhoCompras"></app-produto-quantidade>
+            <app-produto-quantidade [produto]="produto " [carrinho-compras]="carrinhoCompras "></app-produto-quantidade>
         </ng-template>
     </div>
 </div>

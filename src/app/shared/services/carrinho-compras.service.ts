@@ -11,8 +11,7 @@ import { Produto } from '../models/produto';
 export class CarrinhoComprasService {
 
   constructor(
-	  private db: AngularFireDatabase
-  ) { }
+	  private db: AngularFireDatabase) { }
 
   async getCarrinho(): Promise<Observable<CarrinhoCompras>> {
 	  const carrinhoId = await this.getOuCriarCarrinhoId();
@@ -44,7 +43,7 @@ export class CarrinhoComprasService {
 	  })
   }
   private getItem(carrinhoId: string, produtoId: string) {
-	  return this.db.object('/carrinho-compras' + carrinhoId + '/items/' + produtoId);
+	  return this.db.object('/carrinho-compras/' + carrinhoId + '/items/' + produtoId);
   }
 
   private async getOuCriarCarrinhoId() {
