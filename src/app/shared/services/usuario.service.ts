@@ -18,6 +18,6 @@ export class UsuarioService {
 	})
 }
 get(uid: string): AngularFireObject<AppUsuario> {
-	return this._db.object('/usuarios' + uid)
+	return this._db.object('/usuarios/' + uid)
  }
 }
