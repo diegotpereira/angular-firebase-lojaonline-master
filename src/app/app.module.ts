@@ -18,6 +18,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter.component';
 import { SharedModule } from './shared/shared.module';
 import { CarrinhoComprasComponent } from './loja/componentes/carrinho-compras/carrinho-compras.component';
+import { ProdutoFormComponent } from './admin/componentes/produto-form/produto-form.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CarrinhoComprasComponent } from './loja/componentes/carrinho-compras/ca
     AppNavbarComponent,
     ProdutosComponent,
     ProdutoFilterComponent,
-    CarrinhoComprasComponent
+    CarrinhoComprasComponent,
+    ProdutoFormComponent
     
   ],
   imports: [

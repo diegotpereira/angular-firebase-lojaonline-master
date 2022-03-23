@@ -27,7 +27,7 @@
                         {{ item.produto.titulo }}
                     </td>
                     <td>
-
+                        <app-produto-quantidade [carrinho-compras]='carrinho' [produto]='item.produto'></app-produto-quantidade>
                     </td>
                     <td class="text-right">
                         {{ item.totalPreco | currency: 'BRL':'symbol'}}
