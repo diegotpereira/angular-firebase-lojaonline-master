@@ -1,3 +1,51 @@
-<div class="col-6">
-    <app-produto-card [produto]='produto' [show-actions]="false"></app-produto-card>
+<div class="row">
+    <div class="col-6">
+        <form #f="ngForm" (ngSubmit)="salvar(f.value)">
+            <div class="form-group">
+                <label for="titulo">Titulo</label>
+                <input #titulo="ngModel" [(ngModel)]="produto.titulo" type="text" name="titulo" id="titulo" class="form-control" required />
+                <div class="alert alert-danger" *ngIf="titulo.touched && titulo.invalid">
+                    O título é obrigatório.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="preco">Preço</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">R$</div>
+                    </div>
+                    <input #preco="ngModel" [(ngModel)]="produto.preco" type="number" name="preco" id="preco" class="form-control" required [min]="0">
+                </div>
+                <div class="alert alert-danger" *ngIf="preco.touched && preco.invalid">
+                    <div *ngIf="preco?.errors.required">Preço é obrigatório.</div>
+                    <div *ngIf="preco?.errors.min">O preço deve ser 0 ou superior.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <select #categoria="ngModel" [(ngModel)]="produto.categoria" name="categoria" id="categoria" class="form-control" required>
+					<option></option>
+					<option *ngFor="let c of categorias$ | async " [value]="c.key">
+						{{ c.nome }}
+					</option>
+				</select>
+                <div class="alert alert-danger" *ngIf="categoria.touched && categoria.invalid">
+                    Categoria é obrigatória.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imagemUrl">Imagem URL</label>
+                <input #imagemUrl="ngModel" [(ngModel)]="produto.imagemUrl" type="text" name="imagemUrl" id="imagemUrl" class="form-control" required url>
+                <div class="alert alert-danger" *ngIf="imagemUrl.touched && imagemUrl.invalid">
+                    <div *ngIf="imagemUrl?.errors.required">Url de Imagem é obrigatório.</div>
+                    <div *ngIf="imagemUrl?.errors.url">Por favor entre com URL válida.</div>
+                </div>
+            </div>
+            <button mat-raised-button color="primary" class="mr-2">Salvar</button>
+            <button mat-raised-button color="warn" type="button" (click)="remover()">Remover</button>
+        </form>
+    </div>
+    <div class="col-6">
+        <app-produto-card [produto]='produto' [show-actions]="false"></app-produto-card>
+    </div>
 </div>

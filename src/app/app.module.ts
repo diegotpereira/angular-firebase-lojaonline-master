@@ -19,7 +19,11 @@ import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter
 import { SharedModule } from './shared/shared.module';
 import { CarrinhoComprasComponent } from './loja/componentes/carrinho-compras/carrinho-compras.component';
 import { ProdutoFormComponent } from './admin/componentes/produto-form/produto-form.component';
-
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminProdutosComponent } from './admin/componentes/admin-produtos/admin-produtos.component';
+import { AdminPedidosComponent } from './admin/componentes/admin-pedidos/admin-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +33,16 @@ import { ProdutoFormComponent } from './admin/componentes/produto-form/produto-f
     ProdutosComponent,
     ProdutoFilterComponent,
     CarrinhoComprasComponent,
-    ProdutoFormComponent
+    ProdutoFormComponent,
+    AdminProdutosComponent,
+    AdminPedidosComponent
     
   ],
   imports: [
+	BrowserAnimationsModule,
     BrowserModule,
+	FormsModule,
+	CustomFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
 	MaterialModule,
@@ -41,6 +50,7 @@ import { ProdutoFormComponent } from './admin/componentes/produto-form/produto-f
 	AngularFireModule.initializeApp(environment.firebase),
 	AngularFireDatabaseModule,
 	AngularFireAuthModule,
+	NgbModule.forRoot(),
 	ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
