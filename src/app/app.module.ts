@@ -24,6 +24,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminProdutosComponent } from './admin/componentes/admin-produtos/admin-produtos.component';
 import { AdminPedidosComponent } from './admin/componentes/admin-pedidos/admin-pedidos.component';
+import { MeuPedidosComponent } from './loja/componentes/meu-pedidos/meu-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AdminPedidosComponent } from './admin/componentes/admin-pedidos/admin-p
     CarrinhoComprasComponent,
     ProdutoFormComponent,
     AdminProdutosComponent,
-    AdminPedidosComponent
+    AdminPedidosComponent,
+    MeuPedidosComponent
     
   ],
   imports: [

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AdminProdutosComponent } from './componentes/admin-produtos/admin-produtos.component';
+import { AdminPedidosComponent } from './componentes/admin-pedidos/admin-pedidos.component';
 
 
 
@@ -32,6 +33,10 @@ import { AdminProdutosComponent } from './componentes/admin-produtos/admin-produ
 		{
 			path: "admin/produtos",
 			component: AdminProdutosComponent
+		},
+		{
+			path: "admin/pedidos",
+			component: AdminPedidosComponent
 		}
 	])
   ]
