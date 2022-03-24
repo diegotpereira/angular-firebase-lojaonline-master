@@ -13,7 +13,8 @@ import { AdminPedidosComponent } from './componentes/admin-pedidos/admin-pedidos
 @NgModule({
   declarations: [
 	AdminProdutosComponent,
-	ProdutoFormComponent
+	ProdutoFormComponent,
+	AdminPedidosComponent
   ],
   imports: [
     CommonModule,

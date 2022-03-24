@@ -17,15 +17,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ProdutoFilterComponent } from './produtos/produto-filter/produto-filter.component';
 import { SharedModule } from './shared/shared.module';
-import { CarrinhoComprasComponent } from './loja/componentes/carrinho-compras/carrinho-compras.component';
-import { ProdutoFormComponent } from './admin/componentes/produto-form/produto-form.component';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AdminProdutosComponent } from './admin/componentes/admin-produtos/admin-produtos.component';
-import { AdminPedidosComponent } from './admin/componentes/admin-pedidos/admin-pedidos.component';
-import { MeuPedidosComponent } from './loja/componentes/meu-pedidos/meu-pedidos.component';
-import { ComprasFormComponent } from './loja/componentes/compras-form/compras-form.component';
+import { PedidoDetalhesComponent } from './pedido-detalhes/pedido-detalhes.component';
+import { AdminModule } from './admin/admin.module';
+import { LojaModule } from './loja/loja.module';
 
 @NgModule({
   declarations: [
@@ -34,12 +31,7 @@ import { ComprasFormComponent } from './loja/componentes/compras-form/compras-fo
     AppNavbarComponent,
     ProdutosComponent,
     ProdutoFilterComponent,
-    CarrinhoComprasComponent,
-    ProdutoFormComponent,
-    AdminProdutosComponent,
-    AdminPedidosComponent,
-    MeuPedidosComponent,
-    ComprasFormComponent
+    PedidoDetalhesComponent
     
   ],
   imports: [
@@ -50,11 +42,14 @@ import { ComprasFormComponent } from './loja/componentes/compras-form/compras-fo
     AppRoutingModule,
     BrowserAnimationsModule,
 	MaterialModule,
+	AdminModule,
 	SharedModule,
+	LojaModule,
 	AngularFireModule.initializeApp(environment.firebase),
 	AngularFireDatabaseModule,
 	AngularFireAuthModule,
 	NgbModule.forRoot(),
+	AppRoutingModule,
 	ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

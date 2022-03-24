@@ -20,7 +20,7 @@ export class AdminProdutosComponent implements OnInit, OnDestroy {
 	ProdutosFiltrados: any[];
 	subscribe: Subscription;
 	ColunasExibidas: string[] = ['titulo', 'preco', 'edit'];
-	fonteDados: any;
+	dataSource: any;
 
   constructor(
 	  private produtoService: ProdutoService
@@ -28,13 +28,13 @@ export class AdminProdutosComponent implements OnInit, OnDestroy {
 	  this.subscribe = this.produtoService.getTodos().snapshotChanges().pipe(
 		  map(changes => changes.map(c => ({ key: c.payload, ...c.payload.val() as {}})) 
 		  )).subscribe((produtos:any) => {
-			  this.fonteDados = new MatTableDataSource<Produto>(produtos);
-			  this.fonteDados.sort = this.sort;
+			  this.dataSource = new MatTableDataSource<Produto>(produtos);
+			  this.dataSource.sort = this.sort;
 			  
 		  })
   }
   aplicarFiltro(filtarValor: string) {
-	  this.fonteDados.filter = filtarValor.trim().toLowerCase()
+	  this.dataSource.filter = filtarValor.trim().toLowerCase()
   }
 	ngOnDestroy(){
 		this.subscribe.unsubscribe();

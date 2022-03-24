@@ -1,0 +1,44 @@
+<h1>
+    Informações do Pedido
+</h1>
+<div class="row" *ngIf="pedidoInfo">
+    <div class="col-8">
+        <ul class="list-group">
+            <li class="list-group-item font-weight-bold">
+                <div class="row">
+                    <div class="col-3">
+
+                    </div>
+                    <div class="col-5">Titulo</div>
+                    <div class="col-2">Quantidade</div>
+                    <div class="col-2">Preço Total</div>
+                </div>
+            </li>
+            <li class="list-group-item" *ngFor='let pedido of pedidoInfo.items'>
+                <div class="row">
+                    <div class="col-3 d-flex justify-content-center">
+                        <div [style.backgroundImage]="'url(' + pedido.produto.imagemUrl + ')'" class="thumbnail"></div>
+                    </div>
+                    <div class="col-5">{{ pedido.produto.titulo }}</div>
+                    <div class="col-2">{{ pedido.quntidade }}</div>
+                    <div class="col-2">{{ pedido.totalPreco }}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-4 top-fixed">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Endereço de entrega</h5>
+                <div class="card-text">
+                    <div><b>Nome: </b>{{ pedidoInfo.envio.nome }}</div>
+                    <div><b>Endereço: </b> {{ pedidoInfo.envio.enderecoLinha1 }}, {{ pedidoInfo.envio.enderecoLinha2 }}</div>
+                    <div><b>Cidade: </b>{{ pedidoInfo.envio.cidade }}</div>
+                </div>
+                <div class="card-footer-mt-2">
+                    Pedido feito em {{ pedidoInfo.dataPedido | date: 'dd MM yyyy hh:mm'}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

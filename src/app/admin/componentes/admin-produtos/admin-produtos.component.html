@@ -4,7 +4,7 @@
 <p>
     <input #search (keyup)="aplicarFiltro($event.target.value)" type="text" class="form-control">
 </p>
-<table mat-table [dataSource]="fonteDados" class="col-12 table-striped border" matSort matSortDisableClear="true">
+<table mat-table [dataSource]="dataSource" class="col-12 table-striped border" matSort matSortDisableClear="true">
     <!--Coluna Titulo -->
     <ng-container matColumnDef="titulo">
         <th mat-header-cell class="w-50" *matHeaderCellDef mat-sort-header>Titulo</th>
