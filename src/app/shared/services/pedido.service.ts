@@ -21,9 +21,9 @@ export class PedidoService {
 
 		return this.db.list('/pedidos');
 	  }
-	  getPedidosPorUsuario(usuarioId) {
+	  getPedidosPorUsuario(usuarioID) {
 
-		return this.db.list('/pedidos', ref => ref.orderByChild('usuarioId/').equalTo(usuarioId));
+		return this.db.list('/pedidos', ref => ref.orderByChild('usuarioID/').equalTo(usuarioID));
 	  }
 	  get(pedidoId) {
 

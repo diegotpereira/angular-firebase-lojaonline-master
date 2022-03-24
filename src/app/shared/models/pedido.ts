@@ -5,7 +5,7 @@ export class Pedido {
 	items: any[];
 
 	constructor(
-		private usuarioId: string,
+		private usuarioID: string,
 		public envio: any,
 		carrinhoCompras: CarrinhoCompras
 	) {

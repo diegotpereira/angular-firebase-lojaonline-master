@@ -1,0 +1,33 @@
+<form #f="ngForm">
+    <div class="form-group">
+        <label for="">Nome</label>
+        <input type="text" name="nome" #nome="ngModel" [(ngModel)]="envio.nome" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="nome.touched && nome.invalid">
+            <div *ngIf="nome?.errors.required">Nome é obrigatório.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Endereço</label>
+        <input type="text" name="enderecoLinha1" id="" #enderecoLinha1="ngModel" [(ngModel)]="envio.enderecoLinha1" class="form-control" placeholder="Linha 1" required>
+        <div class="alert alert-danger" *ngIf="enderecoLinha1.touched && enderecoLinha1.invalid">
+            <div *ngIf="enderecoLinha1?.errors.required">A Linha de Endereço 1 é obrigatória.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for=""></label>
+        <input type="text" name="enderecoLinha2" id="" #enderecoLinha2="ngModel" [(ngModel)]="envio.enderecoLinha2" class="form-control" placeholder="Linha 2" required>
+        <div class="alert alert-danger" *ngIf="enderecoLinha2.touched && enderecoLinha2.invalid">
+            <div *ngIf="enderecoLinha2?.errors.required">A Linha de Endereço 2 é obrigatória.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Cidade</label>
+        <input type="text" name="cidade" id="" #cidade="ngModel" [(ngModel)]="envio.cidade" class="form-control" required>
+        <div class="alert alert-danger" *ngIf="cidade.touched && cidade.invalid">
+            <div *ngIf="cidade?.errors.required">Cidade é obrigatório.</div>
+        </div>
+    </div>
+    <button [disabled]='!f.valid' (click)="fazerPedido()" color="primary" mat-raised-button>
+		Faça a encomenda
+	</button>
+</form>

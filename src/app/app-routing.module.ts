@@ -25,6 +25,10 @@ const routes: Routes = [
 		path: "meus/pedidos",
 		component: MeuPedidosComponent
 	},
+	//{
+	//	path: "pedido-detalhes/:id",
+	//	component: PedidoDetalheComponent
+	//},
 	{
 		path: "admin/produtos/novo",
 		component: ProdutoFormComponent

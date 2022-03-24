@@ -25,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminProdutosComponent } from './admin/componentes/admin-produtos/admin-produtos.component';
 import { AdminPedidosComponent } from './admin/componentes/admin-pedidos/admin-pedidos.component';
 import { MeuPedidosComponent } from './loja/componentes/meu-pedidos/meu-pedidos.component';
+import { ComprasFormComponent } from './loja/componentes/compras-form/compras-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MeuPedidosComponent } from './loja/componentes/meu-pedidos/meu-pedidos.
     ProdutoFormComponent,
     AdminProdutosComponent,
     AdminPedidosComponent,
-    MeuPedidosComponent
+    MeuPedidosComponent,
+    ComprasFormComponent
     
   ],
   imports: [
