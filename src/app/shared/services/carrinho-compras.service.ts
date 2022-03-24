@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { take, map } from 'rxjs/operators';
 import { CarrinhoCompras } from '../models/carrinho-compras';
