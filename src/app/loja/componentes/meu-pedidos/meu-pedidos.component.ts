@@ -15,9 +15,9 @@ export class MeuPedidosComponent{
 	  pedidoService: PedidoService,
 	  authService: AuthService
   ) {
-	  this.pedidos$ = authService.user$.pipe(switchMap(usuario => {
+	  this.pedidos$ = authService.user$.pipe(switchMap(user => {
 
-		return pedidoService.getPedidosPorUsuario(usuario.uid).snapshotChanges()
+		return pedidoService.getPedidosPorUsuario(user.uid).snapshotChanges()
 		.pipe(map(changes => changes.map(c => ({ key: c.payload.key, ...c.payload.val() as {}}))))
 	  }))
   }

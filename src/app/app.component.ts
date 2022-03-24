@@ -13,8 +13,7 @@ export class AppComponent {
 	constructor(
 		private _auth: AuthService,
 		private _router: Router,
-		private _usuarioService: UsuarioService
-	) {
+		private _usuarioService: UsuarioService) {
 		_auth.user$.subscribe(user => {
 			if(user) {
 				if (!user) return 

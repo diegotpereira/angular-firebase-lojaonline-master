@@ -31,6 +31,6 @@ export class ProdutoCardComponent {
 	  this.carrinhoService.addNoCarrinhoService(this.produto);
   }
   editarProduto(produto) {
-	  this._router.navigate(['#', produto.key]);
+	  this._router.navigate(['/admin/produtos', produto.key]);
   }
 }

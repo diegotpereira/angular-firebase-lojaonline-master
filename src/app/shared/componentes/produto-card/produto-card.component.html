@@ -12,7 +12,7 @@
         </div>
     </div>
     <div *ngIf="showActions && carrinhoCompras" class="card-footer p-0">
-        <button *ngIf="carrinhoCompras.getQuantidade(produto) === 0; else atualizarQuantidade" mat-button class=" btn btn-secondary btn-block " (click)="addNoCarrinho()">
+        <button *ngIf="!carrinhoCompras.itemsMap || carrinhoCompras?.getQuantidade(produto) === 0; else atualizarQuantidade" class=" btn btn-secondary btn-block " (click)="addNoCarrinho()">
 			Adicionar Carrinho
 		</button>
         <ng-template #atualizarQuantidade>

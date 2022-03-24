@@ -29,8 +29,8 @@
 						Meus Pedidos
 					</button>
                     <ng-container *ngIf='appUsuario.ehAdmin'>
-                        <button mat-menu-item routerLink="#">Gerenciar Pedidos</button>
-                        <button mat-menu-item routerLink="#">Gerenciar Produtos</button>
+                        <button mat-menu-item routerLink="/admin/pedidos">Gerenciar Pedidos</button>
+                        <button mat-menu-item routerLink="/admin/produtos">Gerenciar Produtos</button>
                     </ng-container>
                     <button mat-menu-item (click)="sair()">Log Out</button>
                 </mat-menu>
