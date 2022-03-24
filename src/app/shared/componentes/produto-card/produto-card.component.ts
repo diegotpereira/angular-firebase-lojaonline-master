@@ -20,9 +20,9 @@ export class ProdutoCardComponent {
 	appUsuario: AppUsuario;
 	
   constructor(
+	private carrinhoService: CarrinhoComprasService,
 	  private _router: Router,
-	  private auth: AuthService,
-	  private carrinhoService: CarrinhoComprasService
+	  private auth: AuthService
   ) {
 	  this.auth.AppUsuario$.subscribe(appUsuario => this.appUsuario = appUsuario);
 	  

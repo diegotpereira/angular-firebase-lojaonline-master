@@ -6,7 +6,6 @@ export class CarrinhoComprasItem {
 		public quantidade : number) {}
 
 		get totalPreco() {
-
 			return this.produto.preco * this.quantidade;
 		}
 }
