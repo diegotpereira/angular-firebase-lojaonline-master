@@ -3,13 +3,8 @@ import { Produto } from "./produto";
 
 export class CarrinhoCompras {
 	items: CarrinhoComprasItem[] = [];
-
-	constructor(
-		public key: string, 
-		public itemsMap: { [produtoId: string]: CarrinhoComprasItem}) {
-		
-			this.itemsMap = itemsMap || {};
-
+	constructor(public key: string, public itemsMap: { [produtoId: string]: CarrinhoComprasItem}) {
+		this.itemsMap = itemsMap || {};
 		for(let produtoId in itemsMap) {
 			const item = itemsMap[produtoId];
 			this.items.push(new CarrinhoComprasItem(item.produto, item.quantidade));
