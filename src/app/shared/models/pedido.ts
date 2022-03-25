@@ -1,4 +1,6 @@
+import { AppItems } from "./app-items";
 import { CarrinhoCompras } from "./carrinho-compras";
+import { CarrinhoComprasItem } from "./carrinho-compras-item";
 
 export class Pedido {
 	dataPedido: number;

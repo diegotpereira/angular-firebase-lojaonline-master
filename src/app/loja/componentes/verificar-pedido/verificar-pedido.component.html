@@ -1,0 +1,10 @@
+<h2>Confirmar Pedido</h2>
+
+<div class="row" *ngIf='carrinho$ | async carrinho'>
+    <div class="col-6">
+        <app-compras-form [carrinho]='carrinho'></app-compras-form>
+    </div>
+    <div class="col-6">
+        <app-verificar-resumo [carrinho]='carrinho'></app-verificar-resumo>
+    </div>
+</div>

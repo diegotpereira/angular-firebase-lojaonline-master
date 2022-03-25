@@ -1,0 +1,22 @@
+<div class="card" *ngIf='carrinho'>
+    <div class="card-body">
+        <h5 class="card-title">Resumo do carrinho</h5>
+        <p class="card-text">
+            você tem {{ carrinho.contagemTotalItens }} itens em seu carrinho de compras.
+        </p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor='let item of carrinho.items'>
+                {{ item .quantidade }} X {{ item.produto.titulo }}
+                <div class="float-right">
+                    {{ item.totalPreco }}
+                </div>
+            </li>
+            <li class="list-group-item font-weight-bold">
+                Total
+                <div class="float-right">
+                    {{ carrinho.ContagemTotal }}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
