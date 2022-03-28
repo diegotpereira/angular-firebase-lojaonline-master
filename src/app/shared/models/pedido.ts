@@ -1,6 +1,4 @@
-import { AppItems } from "./app-items";
-import { CarrinhoCompras } from "./carrinho-compras";
-import { CarrinhoComprasItem } from "./carrinho-compras-item";
+import { CarrinhoCompras } from "./carrinho-compras";	
 
 export class Pedido {
 	dataPedido: number;
@@ -12,6 +10,7 @@ export class Pedido {
 		carrinhoCompras: CarrinhoCompras
 	) {
 		this.dataPedido = new Date().getTime();
+		
 		this.items = carrinhoCompras.items.map(i => {
 
 			return {
